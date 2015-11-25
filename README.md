@@ -41,8 +41,7 @@ leakage, and not necessarily no breakage, so beware!
 go directly to them, unlike other search engines which are proxied through Disconnect.
 
 - All requests to Disconnect have a ```discord=true``` parameter attached to the URL.
-If you don't like that, change ```extension_identifier``` to something else in
-```background.js```.
+If you don't like that, change ```extension_identifier``` to something else in ```background.js```.
 
 - While the author is not affiliated in any way with Disconnect, they are the ones
 who make private searches possible, so please
