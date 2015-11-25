@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/popup.css">
+		<script src="js/vendor/zepto.min.js"></script>
+		<script src="js/popup.js"></script>
+	</head>
+	<body>
+		<form id="search_form">
+			<input type="text" name="search_words" placeholder="Search Privately" id="search_text">
+			<input type="submit" value="Search" id="search_button">
+		</form>
+		<hr>
+		<ul>
+			<li><label>
+				<input type="radio" name="search_engine" value="Google">
+				Google
+			</label></li>
+			<li><label>
+				<input type="radio" name="search_engine" value="Bing">
+				Bing
+			</label></li>		
+			<li><label>
+				<input type="radio" name="search_engine" value="Yahoo">
+				Yahoo
+			</label></li>
+			<li><label>
+				<input type="radio" name="search_engine" value="DuckDuckGo">
+				DuckDuckGo
+			</label></li>
+		</ul>
+		<hr>
+		<ul>
+			<li><label>
+				<input type="checkbox" name="settings" value="search_from_omnibox">
+				Search from the address bar
+			</label></li>
+			<li><label>
+				<input type="checkbox" name="settings" value="hijack_search_engine_websites">
+				Hijack search engine websites
+			</label></li>
+			<li><label>
+				<input type="checkbox" name="settings" value="incognito_search_results">
+				Incognito search results
+			</label></li>
+		</ul>
+	</body>
+</html>

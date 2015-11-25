@@ -1,0 +1,36 @@
+{
+   "manifest_version": 2,
+   "name": "Discord Search",
+   "version": "0.0.1",
+   "default_locale": "en",
+   "description": "A no-bullsh*t Disconnect Search browser extension",
+   "icons": {
+      "128": "img/128.png",
+      "16": "img/16.png",
+      "48": "img/48.png"
+   },
+   "background": {
+      "scripts": [ "js/background.js" ]
+   },
+   "browser_action": {
+      "default_icon": "img/48.png",
+      "default_popup": "popup.html",
+      "default_title": "Discord Search"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "js/incognito.js" ],
+      "matches": [ "https://search.disconnect.me/*", "https://searchbeta.disconnect.me/*" ],
+      "run_at": "document_end"
+   } ],
+   "content_security_policy": "default-src 'self'",
+   "homepage_url": "https://github.com/mt-caret/discordsearch",
+   "permissions": [
+      "http://*/*",
+      "https://*/*",
+      "storage",
+      "webNavigation",
+      "webRequest",
+      "webRequestBlocking"
+    ]
+}
