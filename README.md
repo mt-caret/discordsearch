@@ -37,7 +37,7 @@ Google, but also breaks a few of Googles' services (like Inbox search).
 Discord Search is conservative in terms of blocking, but that means more possible
 leakage, and not necessarily no breakage, so beware!
 
-- As DuckDuckGo is a [privacy oriented](https://duckduckgo.com/privacy) search queries
+- As DuckDuckGo is a [privacy oriented search engine](https://duckduckgo.com/privacy), search queries
 go directly to them, unlike other search engines which are proxied through Disconnect.
 
 - All requests to Disconnect have a ```discord=true``` parameter attached to the URL.
