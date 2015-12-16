@@ -11,38 +11,36 @@
 			<input type="text" name="search_words" placeholder="Search Privately" id="search_text">
 			<input type="submit" value="Search" id="search_button">
 		</form>
-		<hr>
 		<ul>
-			<li><label>
+			<li><label class="search_engine_label">
 				<input type="radio" name="search_engine" value="Google">
-				Google
+				<img src="img/google.png" class="search_engine_icon">
 			</label></li>
-			<li><label>
+			<li><label class="search_engine_label">
 				<input type="radio" name="search_engine" value="Bing">
-				Bing
+				<img src="img/bing.png" class="search_engine_icon">							
 			</label></li>		
-			<li><label>
+			<li><label class="search_engine_label">
 				<input type="radio" name="search_engine" value="Yahoo">
-				Yahoo
+				<img src="img/yahoo.png" class="search_engine_icon">								
 			</label></li>
-			<li><label>
+			<li><label class="search_engine_label">
 				<input type="radio" name="search_engine" value="DuckDuckGo">
-				DuckDuckGo
+				<img src="img/duckduckgo.png" class="search_engine_icon">								
 			</label></li>
 		</ul>
-		<hr>
 		<ul>
 			<li><label>
 				<input type="checkbox" name="settings" value="search_from_omnibox">
-				Search from the address bar
+				<span class="settings_text">Search from the address bar</span>
 			</label></li>
 			<li><label>
 				<input type="checkbox" name="settings" value="hijack_search_engine_websites">
-				Hijack search engine websites
+				<span class="settings_text">Hijack search engine websites</span>
 			</label></li>
 			<li><label>
 				<input type="checkbox" name="settings" value="incognito_search_results">
-				Incognito search results
+				<span class="settings_text">Incognito search results</span>
 			</label></li>
 		</ul>
 	</body>
