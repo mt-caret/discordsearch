@@ -16,12 +16,12 @@ and concise as possible, so I rewrote (almost) everything from scratch.
 
 - old version of jQuery -> newest version of Zepto.js
 - bloated -> minimum permissions
-- cool UI + logo -> no CSS + nothing (really need some help here!)
 - Firefox & Chrome -> Chrome only (help needed here too!)
 
 ## TODO
 
-- add CSS
+- publish to Chrome Web Store
+- toggle Google Instant Search blocking off when options are not selected
 - 18n & l10n
 - add comments + refactor for readability
 - Google Closure Compiler
