@@ -1,6 +1,6 @@
 # Discord Search
 
-A [Disconnect Search](https://www.disconnect.me/search) browser extension.
+A better [Disconnect Search](https://www.disconnect.me/search) browser extension.
 
 ## Why not the [official extension](https://github.com/disconnectme/search)?
 
