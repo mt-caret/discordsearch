@@ -20,7 +20,9 @@ function get_hostname(url) {
 
 String.prototype.contains = function(it) { return this.indexOf(it) != -1; };
 
-function hijack_omnibox_search(details) {	
+function hijack_omnibox_search(details) {
+  if (!settings["search_from_omnibox"] && !settings["hijack_search_engine_websites"]) return { cancel: false };
+
 	var url = details.url;
 	var google = get_hostname(url).contains(".google.")
 	
