@@ -21,9 +21,7 @@ and concise as possible, so I rewrote (almost) everything from scratch.
 
 ## TODO
 
-- fix search engine hijacking functionality, or get rid of it
 - publish to Chrome Web Store
-- toggle Google Instant Search blocking off when options are not selected
 - 18n & l10n
 - add comments + refactor for readability
 - Google Closure Compiler
