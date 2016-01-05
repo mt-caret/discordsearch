@@ -20,7 +20,6 @@ function apply_settings(items) {
 var settings = {};
 chrome.storage.sync.get({
 		"search_from_omnibox": false,
-		"hijack_search_engine_websites": false,
 		"incognito_search_results": false,
 		"search_engine": "Google"
 	}, apply_settings);

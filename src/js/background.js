@@ -3,7 +3,6 @@ var extension_identifier = "&discord=true"; //change to "" to evade detection
 var settings = {};
 chrome.storage.sync.get({
 		"search_from_omnibox": false,
-		"hijack_search_engine_websites": false,
 		"incognito_search_results": false,
 		"search_engine": "Google"
 	}, function(items) { settings = items; });
@@ -21,31 +20,26 @@ function get_hostname(url) {
 String.prototype.contains = function(it) { return this.indexOf(it) != -1; };
 
 function hijack_omnibox_search(details) {
-  if (!settings["search_from_omnibox"] && !settings["hijack_search_engine_websites"]) return { cancel: false };
+  if (settings["search_from_omnibox"]) {
+    var url = details.url;
+    var google = get_hostname(url).contains(".google.")
 
-	var url = details.url;
-	var google = get_hostname(url).contains(".google.")
-	
-	var block = url.contains("/s?") || url.contains("/complete/search?") || url.contains("sourceid=chrome-instant");
-	if(block) {
-		console.log("blocked: " + url);
-		return { cancel: true };
-	}
-	var match = /[?|&]q=(.*?)(&|$)/.exec(url);
-	var query_found = match !== null && match.length > 1 && match[1].trim() !== "";
-	var search_from_omnibox = url.contains("es_sm=");
-	var search_from_page = url.contains("/search?");
-	var proxy =
-		(settings["search_from_omnibox"] && search_from_omnibox) ||
-		(settings["hijack_search_engine_websites"] && search_from_page && !search_from_omnibox);
+    var block = google && (url.contains("/s?") || url.contains("/complete/search?") || url.contains("sourceid=chrome-instant"));
+    if(block) {
+      console.log("blocked: " + url);
+      return { cancel: true };
+    }
+    var match = /[?|&]q=(.*?)(&|$)/.exec(url);
+    var query_found = match !== null && match.length > 1 && match[1].trim() !== "";
+    var search_from_omnibox = url.contains("es_sm=");
 
-	if (google && query_found && proxy) {
-		var search_url = build_search_url(match[1], settings["search_engine"]);
-		console.log("redirected: " + url + " -> " + search_url);
-		return { redirectUrl:  search_url };
-	}
-
-	return { cancel: false };
+    if (google && query_found && search_from_omnibox) {
+      var search_url = build_search_url(match[1].trim(), settings["search_engine"]);
+      console.log("redirected: " + url + " -> " + search_url);
+      return { redirectUrl:  search_url };
+    }
+  }
+  return { cancel: false };
 }
 
 function handle_message(request, sender, sendResponse) {
