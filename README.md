@@ -6,7 +6,7 @@ A better [Disconnect Search](https://www.disconnect.me/search) browser extension
 
 ## Why not the [official extension](https://github.com/disconnectme/search)?
 
-A quick look at the code showed some susupicious stuff;
+A quick look at the code showed some suspicious stuff;
 the extension phoning home with statistics, way too many unused permissions,
 and weird "adblock" dead code, just to name a few.
 
@@ -32,13 +32,14 @@ and concise as possible, so I rewrote (almost) everything from scratch.
 - This extension is a work in progress, so **do NOT trust this as a secure/private
 alternate** to the original extension (yet). Expect breakages as well.
 
-- The original extension does a reasonable job blocking search term leakage to
-Google, but also breaks a few of Googles' services (like Inbox search).
-Discord Search is conservative in terms of blocking, but that means more possible
-leakage, and not necessarily no breakage, so beware!
+- The original extension blocked various forms of search term leakage regardless
+of settings, and broke a few of Google's services (like Inbox search). Discord
+Search only blocks when the "search from the address bar" option is set and is
+much more conservative in terms of blocking. This means more possible leakage,
+but not necessarily no breakage, so beware!
 
 - As DuckDuckGo is a [privacy oriented search engine](https://duckduckgo.com/privacy), search queries
-go directly to them, unlike other search engines which are proxied through Disconnect.
+go directly to them unlike other search engines which are proxied through Disconnect.
 
 - All requests to Disconnect have a ```discord=true``` parameter attached to the URL.
 If you don't like that, change ```extension_identifier``` to something else in ```background.js```.
