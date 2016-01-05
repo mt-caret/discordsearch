@@ -3,7 +3,7 @@
    "name": "Discord Search",
    "version": "0.0.1",
    "default_locale": "en",
-   "description": "A no-bullsh*t Disconnect Search browser extension",
+   "description": "A better Disconnect Search browser extension",
    "icons": {
       "128": "img/128.png",
       "16": "img/16.png",
