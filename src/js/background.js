@@ -1,5 +1,4 @@
 var search_host = "search.disconnect.me";
-var extension_identifier = "&discord=true"; //change to "" to evade detection
 var settings = {};
 chrome.storage.sync.get({
 		"search_from_omnibox": false,
@@ -8,7 +7,7 @@ chrome.storage.sync.get({
 	}, function(items) { settings = items; });
 
 function build_search_url(query, search_engine) {
-	return 'https://' + search_host + '/searchTerms/search?query=' + query + '&ses=' + search_engine + extension_identifier;
+	return 'https://' + search_host + '/searchTerms/search?query=' + query + '&ses=' + search_engine;
 }
 
 function get_hostname(url) {
