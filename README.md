@@ -24,7 +24,6 @@ and concise as possible, so I rewrote (almost) everything from scratch.
 - publish to Chrome Web Store
 - 18n & l10n
 - add comments + refactor for readability
-- Google Closure Compiler
 - investigate search form hijacking
 
 ## Stuff To Be Aware Of
