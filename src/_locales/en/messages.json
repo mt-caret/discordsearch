@@ -1,5 +1,4 @@
 {
-  //Metadata
   "extension_name": {
     "message": "Discord Search",
     "description": "The title of the application, displayed in the web store."
@@ -8,8 +7,6 @@
     "message": "A better Disconnect Search browser extension",
     "description":"The description of the application, displayed in the web store."
   },
-
-  //UI
   "search_text": {
     "message": "Search Privately",
     "description": "Placeholder text for search form"

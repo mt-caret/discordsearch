@@ -1,13 +1,10 @@
 {
-  //Metadata
   "extension_name": {
     "message": "Discord Search"
   },
   "extension_description": {
     "message": "改良版Disconnect Search"
   },
-
-  //UI
   "search_text": {
     "message": "プライベートな検索"
   },
