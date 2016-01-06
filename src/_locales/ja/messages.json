@@ -1,0 +1,23 @@
+{
+  //Metadata
+  "extension_name": {
+    "message": "Discord Search"
+  },
+  "extension_description": {
+    "message": "改良版Disconnect Search"
+  },
+
+  //UI
+  "search_text": {
+    "message": "プライベートな検索"
+  },
+  "search_button": {
+    "message": "検索"
+  },
+  "search_from_omnibox_setting": {
+    "message": "アドレスバーからの検索"
+  },
+  "incognito_search_results_setting": {
+    "message": "検索結果のシークレットモード化"
+  }
+}

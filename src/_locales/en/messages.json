@@ -1,2 +1,29 @@
 {
+  //Metadata
+  "extension_name": {
+    "message": "Discord Search",
+    "description": "The title of the application, displayed in the web store."
+  },
+  "extension_description": {
+    "message": "A better Disconnect Search browser extension",
+    "description":"The description of the application, displayed in the web store."
+  },
+
+  //UI
+  "search_text": {
+    "message": "Search Privately",
+    "description": "Placeholder text for search form"
+  },
+  "search_button": {
+    "message": "Search",
+    "description": "Text for the button that triggers searches"
+  },
+  "search_from_omnibox_setting": {
+    "message": "Search from the address bar",
+    "description": "Label for checkbox setting"
+  },
+  "incognito_search_results_setting": {
+    "message": "Open search results in incognito",
+    "description": "Label for checkbox setting"
+  }
 }

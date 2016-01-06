@@ -1,6 +1,15 @@
 function search_engine_radio() { return $("input[name='search_engine']"); }
 function settings_checkboxes() { return $("input[name='settings']"); }
 
+function i18nize(str) { return chrome.i18n.getMessage(str); }
+function localize_html() {
+  $("#search_text").prop("placeholder", i18nize("search_text"));
+  $("#search_button").val(i18nize("search_button"));
+  settings_checkboxes().each(function() {
+    $(this).siblings("span").text(i18nize($(this).val() + "_setting"));
+  });
+}
+
 function apply_settings(items) {
 	settings = items;
 	search_engine_radio().filter(function(e){
@@ -25,6 +34,8 @@ chrome.storage.sync.get({
 	}, apply_settings);
 
 $(document).ready(function(){
+  localize_html();
+
 	var search_form = $("#search_form");
 	search_form.on("submit", function(e) {
 		e.preventDefault();
@@ -46,3 +57,4 @@ $(document).ready(function(){
 		chrome.storage.sync.set(obj, function(){});
 	});
 });
+
