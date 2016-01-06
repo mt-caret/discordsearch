@@ -19,6 +19,17 @@ and concise as possible, so I rewrote (almost) everything from scratch.
 - bloated -> minimum permissions
 - Firefox & Chrome -> Chrome only (help needed here too!)
 
+## Additional Features
+
+- i18n support
+
+The only supported languages right now are English and Japanese, so PRs are
+welcome.
+
+- compatibility with IMEs
+
+Pressing the enter key to confirm conversions will not trigger searches!
+
 ## TODO
 
 - publish to Chrome Web Store
