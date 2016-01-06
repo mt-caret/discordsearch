@@ -22,9 +22,9 @@ and concise as possible, so I rewrote (almost) everything from scratch.
 ## TODO
 
 - publish to Chrome Web Store
-- 18n & l10n
 - add comments + refactor for readability
 - investigate search form hijacking
+- license
 
 ## Stuff To Be Aware Of
 
