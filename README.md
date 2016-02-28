@@ -36,6 +36,8 @@ Pressing the enter key to confirm conversions will not trigger searches!
 - add comments + refactor for readability
 - investigate search form hijacking
 - license
+- [add shortcut to open browser
+  action](https://developer.chrome.com/apps/commands)
 
 ## Stuff To Be Aware Of
 
