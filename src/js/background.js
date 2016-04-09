@@ -3,7 +3,6 @@
 
   let settings = {};
   chrome.storage.sync.get({
-      "search_from_omnibox": false,
       "incognito_search_results": false,
       "search_engine": "Google"
     }, (items) => { settings = items; });
@@ -22,31 +21,19 @@
 
   const hijack_omnibox_search = (details) => {
     const url = details.url;
-    const google = get_hostname(url).contains(".google.")
 
-    //Attempt to block search term leakage only when search from omnibox is set
-    //as it kills Google Instant search functionality. Assumes default search
-    //provider is Google.
-    if (!settings["search_from_omnibox"] || !google) { return { cancel: false }; }
-
-    //Block Google Instant search term leakage.
-    const block = url.contains("/s?") || url.contains("/complete/search?") || url.contains("sourceid=chrome-instant");
-    if(block) {
-      console.log("Blocked: " + url);
-      return { cancel: true };
-    }
-
-    //If query is found, extract and proxy search to Disconnect.
-    const match = /[?|&]q=(.*?)(&|$)/.exec(url);
+    //If search is conducted through omnibox, hijack query and add search
+    //engine choice. (This assumes that the user has added Disconnect Search as
+    //a search engine through the Chrome Settings as per README.md)
+    const r = /https:\/\/search\.disconnect\.me\/searchTerms\/search\?query=(.*?)&ses=dummy/;
+    const match = r.exec(url);
     const query_found = match !== null && match.length > 1 && match[1].trim() !== "";
-    const search_from_omnibox = url.contains("es_sm=");
-    if (query_found && search_from_omnibox) {
-      const search_url = build_search_url(match[1].trim(), settings["search_engine"]);
-      console.log("Redirected: " + url + " -> " + search_url);
-      return { redirectUrl:  search_url };
-    }
 
-    return { cancel: false };
+    if (!query_found) return { cancel: false };
+
+    const search_url = build_search_url(match[1].trim(), settings["search_engine"]);
+    console.log("Search engine set: " + url + " -> " + search_url);
+    return { redirectUrl:  search_url };
   }
 
   const handle_message = function(request, sender, sendResponse) {

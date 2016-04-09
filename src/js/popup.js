@@ -31,7 +31,6 @@
 
   let settings = {};
   chrome.storage.sync.get({
-      "search_from_omnibox": false,
       "incognito_search_results": false,
       "search_engine": "Google"
     }, apply_settings);
