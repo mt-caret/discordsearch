@@ -1,26 +1,30 @@
-var incognito = false;
-chrome.storage.sync.get("incognito_search_results", function(items) {
-  incognito = items["incognito_search_results"];
-});
+(function() {
+  "use strict";
 
-function open_link(e) {
-  if(!incognito) return;
-
-  e.preventDefault();
-  chrome.runtime.sendMessage({
-    "action": "open_in_incognito",
-    "url": this.href
+  let incognito = false;
+  chrome.storage.sync.get("incognito_search_results", (items) => {
+    incognito = items["incognito_search_results"];
   });
-}
 
-function load_listener() {
-  var normal_results = document.getElementById("normal-results");
-  if (normal_results === null) return;
+  const open_link = function(e) {
+    if(!incognito) return;
 
-  var results = normal_results.getElementsByTagName("a");
-  for (var i = 0, all = results.length; i < all; i++) {
-    results[i].addEventListener("click", open_link);
+    e.preventDefault();
+    chrome.runtime.sendMessage({
+      "action": "open_in_incognito",
+      "url": this.href
+    });
   }
-}
 
-load_listener();
+  const load_listener = function() {
+    const normal_results = document.getElementById("normal-results");
+    if (normal_results === null) return;
+
+    let results = normal_results.getElementsByTagName("a");
+    for (let i = 0, all = results.length; i < all; i++) {
+      results[i].addEventListener("click", open_link);
+    }
+  }
+
+  load_listener();
+})();
