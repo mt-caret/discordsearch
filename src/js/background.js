@@ -23,7 +23,7 @@
     //If search is conducted through omnibox, hijack query and add search
     //engine choice. (This assumes that the user has added Disconnect Search as
     //a search engine through the Chrome Settings as per README.md)
-    const r = /https:\/\/search\.disconnect\.me\/searchTerms\/search\?query=(.*?)&ses=dummy/;
+    const r = /^https:\/\/search\.disconnect\.me\/searchTerms\/search\?query=(.*?)&ses=dummy$/;
     const match = r.exec(url);
     const query_found = match !== null && match.length > 1 && match[1].trim() !== "";
 
