@@ -17,8 +17,6 @@
     return l.hostname;
   }
 
-  String.prototype.contains = function(it) { return this.indexOf(it) != -1; };
-
   const hijack_omnibox_search = (details) => {
     const url = details.url;
 
@@ -36,7 +34,7 @@
     return { redirectUrl:  search_url };
   }
 
-  const handle_message = function(request, sender, sendResponse) {
+  const handle_message = (request, sender, sendResponse) => {
     console.log("Message recieved: " + request.action);
     switch (request.action) {
       case "search":
@@ -49,7 +47,7 @@
   }
 
   const load_events = () => {
-    chrome.runtime.onInstalled.addListener(function(details) {
+    chrome.runtime.onInstalled.addListener((details) => {
       if(details.reason == "install") {
         chrome.tabs.create({ url: "https://github.com/mt-caret/discordsearch#stuff-to-be-aware-of" });
       } else if (details.reason == "update") {
@@ -57,7 +55,7 @@
         console.log("Update detected: " + details.previousVersion + " -> " + thisVersion + "!");
       }
     });
-    chrome.storage.onChanged.addListener(function(changes, namespace) {
+    chrome.storage.onChanged.addListener((changes, namespace) => {
       Object.keys(changes).forEach((key) => {
         settings[key] = changes[key].newValue;
       });

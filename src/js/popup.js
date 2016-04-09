@@ -56,7 +56,7 @@
       const setting_name = $(this).val();
       let obj = {};
       obj[setting_name] = settings[setting_name] = $(this).prop("checked");
-      chrome.storage.sync.set(obj, function(){});
+      chrome.storage.sync.set(obj, () => {});
     });
   });
 })();

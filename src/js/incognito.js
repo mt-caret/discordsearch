@@ -16,7 +16,7 @@
     });
   }
 
-  const load_listener = function() {
+  const load_listener = () => {
     const normal_results = document.getElementById("normal-results");
     if (normal_results === null) return;
 
