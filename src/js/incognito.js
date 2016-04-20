@@ -14,7 +14,7 @@
       "action": "open_in_incognito",
       "url": this.href
     });
-  }
+  };
 
   const load_listener = () => {
     const normal_results = document.getElementById("normal-results");
@@ -24,7 +24,7 @@
     for (let i = 0, all = results.length; i < all; i++) {
       results[i].addEventListener("click", open_link);
     }
-  }
+  };
 
   load_listener();
 })();

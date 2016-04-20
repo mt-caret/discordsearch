@@ -9,13 +9,13 @@
 
   const build_search_url = (query, search_engine) => {
     return 'https://search.disconnect.me/searchTerms/search?query=' + query + '&ses=' + search_engine;
-  }
+  };
 
   const get_hostname = (url) => {
     const l = window.document.createElement("a");
     l.href = url;
     return l.hostname;
-  }
+  };
 
   const hijack_omnibox_search = (details) => {
     const url = details.url;
@@ -32,7 +32,7 @@
     const search_url = build_search_url(match[1].trim(), settings["search_engine"]);
     console.log("Search engine set: " + url + " -> " + search_url);
     return { redirectUrl:  search_url };
-  }
+  };
 
   const handle_message = (request, sender, sendResponse) => {
     console.log("Message recieved: " + request.action);
@@ -44,7 +44,7 @@
         chrome.windows.create({ url: request.url, incognito: true });
         break;
     }
-  }
+  };
 
   const load_events = () => {
     chrome.runtime.onInstalled.addListener((details) => {
@@ -65,7 +65,7 @@
       { urls: [ "http://*/*", "https://*/*" ] },
       ['blocking']);
     chrome.runtime.onMessage.addListener(handle_message);
-  }
+  };
 
   load_events();
 })();

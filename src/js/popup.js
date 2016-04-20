@@ -1,17 +1,17 @@
 (function() {
   "use strict";
 
-  const search_engine_radio = () => { return $("input[name='search_engine']"); }
-  const settings_checkboxes = () => { return $("input[name='settings']"); }
+  const search_engine_radio = () => { return $("input[name='search_engine']"); };
+  const settings_checkboxes = () => { return $("input[name='settings']"); };
 
-  const i18nize = (str) => { return chrome.i18n.getMessage(str); }
+  const i18nize = (str) => { return chrome.i18n.getMessage(str); };
   const localize_html = () => {
     $("#search_text").prop("placeholder", i18nize("search_text"));
     $("#search_button").val(i18nize("search_button"));
     settings_checkboxes().each(function() {
       $(this).siblings("span").text(i18nize($(this).val() + "_setting"));
     });
-  }
+  };
 
   const apply_settings = (items) => {
     settings = items;
@@ -27,7 +27,7 @@
     settings_checkboxes().each(function() {
       $(this).prop("checked", settings[$(this).val()]);
     });
-  }
+  };
 
   let settings = {};
   chrome.storage.sync.get({
