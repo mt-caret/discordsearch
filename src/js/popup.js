@@ -13,6 +13,7 @@
     });
   };
 
+  let settings = {};
   const apply_settings = (items) => {
     settings = items;
     search_engine_radio().filter(function(e){
@@ -28,8 +29,6 @@
       $(this).prop("checked", settings[$(this).val()]);
     });
   };
-
-  let settings = {};
   chrome.storage.sync.get({
       "incognito_search_results": false,
       "search_engine": "Google"
